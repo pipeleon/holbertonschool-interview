@@ -8,11 +8,11 @@ def checkKeys(boxes, keys, pair):
     check = False
 
     for i in pair:
-        if not keys[i]:
+        if not keys[i] and i < len(boxes):
             keys[i] = True
             new_pair += boxes[i]
             check = True
-    
+
     res = {
         "pair": new_pair,
         "check": check
@@ -26,7 +26,7 @@ def canUnlockAll(boxes):
     keys = {}
 
     for i in range(len(boxes)):
-        keys[i] = False 
+        keys[i] = False
 
     check = True
     pair = boxes[0]

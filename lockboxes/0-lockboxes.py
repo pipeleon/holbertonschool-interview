@@ -8,10 +8,11 @@ def checkKeys(boxes, keys, pair):
     check = False
 
     for i in pair:
-        if not keys[i] and i < len(boxes):
-            keys[i] = True
-            new_pair += boxes[i]
-            check = True
+        if i < len(boxes):
+            if not keys[i]:
+                keys[i] = True
+                new_pair += boxes[i]
+                check = True
 
     res = {
         "pair": new_pair,
